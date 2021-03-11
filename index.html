@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>mpartition tool</title>
+    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="jqui/jquery-ui.min.css">
+    <link rel="stylesheet" href="jqui/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="jqui/jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="index.css">
+    <script src="jquery.min.js"></script>
+    <script src="jqui/jquery-ui.min.js"></script>
+
+    <script src="randomColor.js"></script>
+    <script src="disk.js"></script>
+  </head>
+  <body>
+    <button onclick="add_disk()">Add disk</button>
+    <button onclick="disks = JSON.parse(localStorage.disks);update_ui();">Load</button>
+    <button onclick="localStorage.disks = JSON.stringify(disks);">Save</button>
+    <button onclick="exportToJsonFile(disks)">Export</button>
+    <input type="file" onchange="loadFile(this.files[0])">
+    <button onclick="localStorage.clear();location.reload()">Clear</button>
+    <disks>
+
+    </disks>
+    <div id="dialog-create-disk" title="Empty the recycle bin?">
+      Physical size: <input type="number" value="0" required min="100" step="0.01"><br>
+      Tip: Total expendable amount.
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
